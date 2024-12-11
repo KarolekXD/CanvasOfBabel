@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Of Babel</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+        }
+
+        #canvas {
+            width: 600px;
+            height: 400px;
+            background-color: black;
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(600, 1fr);
+            grid-template-rows: repeat(400, 1fr);
+            border: #585858 solid 8px;
+        }
+
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 5%;
+        }
+
+        h1 {
+            font-family: "Amaranth", sans-serif;
+            font-size: 30px;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            background-color: #111;
+            padding: 0 10px 0 10px;
+        }
+
+        hr {
+            width: 80%;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .pixel {
+            width: 1px;
+            height: 1px;
+        }
+
+        p{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            font-size: 20px;
+            color: #ffffff3a;
+            font-family: "Amaranth", sans-serif;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <hr>
+            <h1>Canvas Of Babel</h1>
+        </div>
+        <div id="canvas"></div>
+        <p tabindex="-1">
+            The Canvas of Babel is a conceptual representation of infinite potential and chaotic creativity. Inspired by ideas like the "Library of Babel", it takes the form of an image composed of randomly generated pixels. Each pixel, assigned a random color, contributes to a vast, ever-changing mosaic. Within its infinite possibilities, the Canvas of Babel theoretically contains every conceivable image—every masterpiece, every memory, every future vision—hidden among the randomness.
+        </p>
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        for (let i = 0; i < 600; i++) {
+            for (let i = 0; i < 400; i++) {
+                const pixel = document.createElement('div');
+                pixel.classList.add('pixel');
+                let r = Math.floor(Math.random() * 255);
+                let g = Math.floor(Math.random() * 255);
+                let b = Math.floor(Math.random() * 255);
+                pixel.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                canvas.appendChild(pixel);
+            }
+        }
+    </script>
+</body>
+</html>
